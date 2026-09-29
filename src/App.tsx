@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import ThemedButtonWithTheme  from './components/ThemedButtonWithTheme';
+import ThemedButtonWithTheme from './components/ThemedButtonWithTheme';
 import type { ThemeType, ThemePalette } from './types';
 
 const palette: ThemePalette = {
@@ -42,20 +42,12 @@ function App() {
         transition: 'all 0.3s ease',
       }}
     >
-      <button
+      <ThemedButtonWithTheme
+        theme={theme}
+        palette={palette}
+        label={`Переключить тему (сейчас: ${theme})`}
         onClick={toggleTheme}
-        style={{
-          padding: '10px 20px',
-          fontSize: '16px',
-          cursor: 'pointer',
-          borderRadius: '5px',
-          border: `2px solid ${colors.buttonBorder}`,
-          backgroundColor: colors.buttonBackground,
-          color: colors.buttonText,
-        }}
-      >
-        Переключить тему (сейчас: {theme})
-      </button>
+      />
 
       <ThemedButtonWithTheme
         theme={theme}
