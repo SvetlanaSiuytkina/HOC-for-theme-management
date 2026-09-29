@@ -1,6 +1,13 @@
-import type { WithThemeProps } from '../hoc/withTheme';
+import type { ThemePalette, ThemeType } from "../types";
 
-function ThemeButton ({ theme, palette, label, onClick }: WithThemeProps) {
+export interface ThemedButtonProps {
+  theme: ThemeType;
+  palette: ThemePalette;
+  label: string;
+  onClick?: () => void;
+}
+
+function ThemedButton ({ theme, palette, label, onClick }: ThemedButtonProps) {
   const colors = palette[theme];
 
   return (
@@ -21,4 +28,4 @@ function ThemeButton ({ theme, palette, label, onClick }: WithThemeProps) {
   );
 }
 
-export default ThemeButton;
+export default ThemedButton;

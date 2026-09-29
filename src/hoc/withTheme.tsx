@@ -1,17 +1,14 @@
 import type { ComponentType } from 'react';
-import type { ThemeColors, ThemeType } from '../types';
+import type { ThemeType } from '../types';
 
-export interface WithThemeProps {
+export interface InjectedThemeProps {
   theme: ThemeType;
-  palette: Record<ThemeType, ThemeColors>;
-  label: string;
-  onClick?: () => void;
 }
 
-export function withTheme (
-  WrappedComponent: ComponentType<WithThemeProps>
-): ComponentType<WithThemeProps> {
-  function WithThemeComponent (props: WithThemeProps) {
+export function withTheme<P extends InjectedThemeProps> (
+  WrappedComponent: ComponentType<P>
+): ComponentType<P> {
+  function WithThemeComponent (props: P) {
     return <WrappedComponent {...props} />
   }
 
